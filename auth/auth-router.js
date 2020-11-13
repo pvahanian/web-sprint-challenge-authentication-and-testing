@@ -8,9 +8,9 @@ const {jwtSecret} = require('./secrets.js')
 
 router.post('/register', (req, res) => {
 
-  const credentials = req.body //used to get data from the post request
+const credentials = req.body //used to get data from the post request
 
-  if(isValid(credentials)){
+if(isValid(credentials)){
             const hash = bcrypt.hashSync(credentials.password, 8) // sets how many times the pass is hashed
             credentials.password = hash;
             Helper.add(credentials)
@@ -81,7 +81,7 @@ function makeToken(user) {
   }
 
   
-  function restricted (req,res,next) {
+function restricted (req,res,next) {
   const token = req.headers.authorization;
   
     if (!token) {
