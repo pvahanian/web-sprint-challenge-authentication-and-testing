@@ -2,12 +2,12 @@ const db = require("../database/dbConfig");
 
 module.exports = {
   add,
-  find,
+  get,
   findBy,
   findById,
 };
 
-function find() {
+function get() {
   return db("users").select("id", "username").orderBy("id");
 }
 
