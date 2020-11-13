@@ -11,7 +11,7 @@ router.post('/register', (req, res) => {
 const credentials = req.body //used to get data from the post request
 
 if(isValid(credentials)){
-            const hash = bcrypt.hashSync(credentials.password, 8) // sets how many times the pass is hashed
+            const hash = bcryptjs.hashSync(credentials.password, 8) // sets how many times the pass is hashed
             credentials.password = hash;
             Helper.add(credentials)
             .then(user => {
